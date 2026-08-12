@@ -8,7 +8,7 @@ export type Plate = {
 };
 
 export const assetPath = (src: string) =>
-  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${src}`;
+  `${process.env.NEXT_PUBLIC_BASE_PATH ?? "/casa-de-vidro-interactive"}${src}`;
 
 export const brand = {
   name: "Casa de Vidro",
