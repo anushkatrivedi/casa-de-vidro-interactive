@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { useLightbox } from "@/components/Lightbox";
-import type { Plate } from "@/lib/site";
+import { assetPath, type Plate } from "@/lib/site";
 
 const MAP_LABEL = "The setting";
 const MAP_CAPTION = "Siolim, Goa — where the house stands";
@@ -32,7 +32,7 @@ export function MapSection() {
           >
             <div className="relative aspect-[3/2] overflow-hidden">
               <Image
-                src={mapPlate.src}
+                src={assetPath(mapPlate.src)}
                 alt={mapPlate.alt}
                 fill
                 sizes="100vw"

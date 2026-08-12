@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
 import { useLightbox } from "@/components/Lightbox";
-import { livingPlates } from "@/lib/site";
+import { assetPath, livingPlates } from "@/lib/site";
 
 function Arrow({ dir }: { dir: "prev" | "next" }) {
   return (
@@ -82,7 +82,7 @@ export function Gallery() {
               className="plate-img group relative block h-full w-full cursor-zoom-in"
             >
               <Image
-                src={plate.src}
+                src={assetPath(plate.src)}
                 alt={plate.alt}
                 fill
                 sizes="(min-width: 1024px) 1200px, 100vw"
@@ -136,7 +136,7 @@ export function Gallery() {
               }`}
             >
               <Image
-                src={p.src}
+                src={assetPath(p.src)}
                 alt=""
                 fill
                 sizes="80px"

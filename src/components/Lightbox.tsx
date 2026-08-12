@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { Plate } from "@/lib/site";
+import { assetPath, type Plate } from "@/lib/site";
 
 type LightboxState = {
   open: (plates: Plate[], startIndex: number) => void;
@@ -162,7 +162,7 @@ export function LightboxProvider({ children }: { children: ReactNode }) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${current.src}`}
+                src={assetPath(current.src)}
                 alt={current.alt}
                 className="mx-auto max-h-[76vh] w-auto max-w-full object-contain shadow-[0_30px_90px_oklch(0.1_0.02_40_/0.5)]"
               />

@@ -7,6 +7,9 @@ export type Plate = {
   ratio: string;
 };
 
+export const assetPath = (src: string) =>
+  `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${src}`;
+
 export const brand = {
   name: "Casa de Vidro",
   latin: "Casa de Vidro — Portuguese for “glass house”.",

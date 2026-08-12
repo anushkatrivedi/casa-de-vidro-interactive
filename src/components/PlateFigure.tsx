@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLightbox } from "@/components/Lightbox";
-import type { Plate } from "@/lib/site";
+import { assetPath, type Plate } from "@/lib/site";
 
 type PlateFigureProps = {
   plate: Plate;
@@ -31,7 +31,7 @@ export function PlateFigure({
       className={`group plate-img relative block w-full cursor-zoom-in text-left ${className}`}
     >
       <Image
-        src={plate.src}
+        src={assetPath(plate.src)}
         alt={plate.alt}
         fill
         priority={priority}

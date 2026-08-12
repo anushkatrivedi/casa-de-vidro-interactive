@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Parallax } from "@/components/Parallax";
 import { Reveal } from "@/components/Reveal";
-import { brand, heroLabel } from "@/lib/site";
+import { assetPath, brand, heroLabel } from "@/lib/site";
 
 function Arrow() {
   return (
@@ -60,7 +60,7 @@ export function Hero() {
           speed={0.14}
         >
           <Image
-            src="/images/exterior/exterior-hero.jpg"
+            src={assetPath("/images/exterior/exterior-hero.jpg")}
             alt="Casa de Vidro — the exterior, glass volume set in a bright terracotta shell."
             fill
             priority

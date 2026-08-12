@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeader } from "@/components/SectionHeader";
-import { housePlates } from "@/lib/site";
+import { assetPath, housePlates } from "@/lib/site";
 
 export function House() {
   const plate = housePlates[0];
@@ -18,7 +18,7 @@ export function House() {
         <Reveal variant="scale">
           <figure className="relative aspect-[2600/1626] overflow-hidden">
             <Image
-              src={plate.src}
+              src={assetPath(plate.src)}
               alt={plate.alt}
               fill
               sizes="(min-width: 1024px) 1200px, 100vw"
