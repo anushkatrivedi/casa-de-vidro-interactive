@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+@theme {
+  /* Casa de Vidro — An Architectural Record */
+  /* Glass & light, mid-century modern, bright terracotta as the identity */
+
+  --color-terracotta: oklch(0.6 0.137 39);
+  --color-terracotta-bright: oklch(0.678 0.145 42);
+  --color-terracotta-deep: oklch(0.478 0.115 35);
+  --color-clay: oklch(0.8 0.055 45);
+  --color-sand: oklch(0.965 0.0085 55);
+  --color-sand-deep: oklch(0.928 0.013 50);
+  --color-cream: oklch(0.985 0.0045 65);
+  --color-ink: oklch(0.235 0.03 40);
+  --color-ink-soft: oklch(0.44 0.032 40);
+  --color-leaf: oklch(0.46 0.08 150);
+  --color-leaf-deep: oklch(0.42 0.07 152);
+  --color-sun: oklch(0.87 0.09 78);
+
+  --font-display: var(--font-instrument-serif);
+  --font-brand: var(--font-zen);
+  --font-serif: var(--font-newsreader);
+  --font-sans: var(--font-archivo);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --shadow-plate: 0 1px 0 oklch(0.235 0.03 40 / 0.06), 0 24px 60px oklch(0.235 0.03 40 / 0.18);
+  --shadow-plate-sm: 0 12px 32px oklch(0.235 0.03 40 / 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-sand);
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-leaf);
+  color: var(--color-cream);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-leaf-deep);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ---- Film grain ---- */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -100%;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Scroll reveal ---- */
+.reveal {
+  --d: 0ms;
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 760ms var(--ease-out-expo) var(--d),
+    transform 960ms var(--ease-out-quint) var(--d);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-left {
+  transform: translate3d(-28px, 0, 0);
+}
+
+.reveal.reveal-right {
+  transform: translate3d(28px, 0, 0);
+}
+
+.reveal.reveal-scale {
+  transform: translate3d(0, 0, 0) scale(0.985);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ---- Archival label ---- */
+.archival {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ---- Link underline ---- */
+.link-line {
+  position: relative;
+}
+
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.15em;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 420ms var(--ease-out-expo);
+}
+
+.link-line:hover::after,
+.link-line:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ---- Plate image hover ---- */
+.plate-img {
+  overflow: hidden;
+}
+
+.plate-img img {
+  transform: scale(1.015);
+  transition: transform 1100ms var(--ease-out-quint), filter 700ms var(--ease-out-expo);
+  filter: saturate(0.98) contrast(1.03);
+}
+
+.plate-img:hover img,
+.plate-img:focus-within img {
+  transform: scale(1.045);
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* ---- Marquee ---- */
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+/* ---- Header ---- */
+.site-header {
+  backdrop-filter: blur(14px);
+  background: linear-gradient(
+    to bottom,
+    oklch(0.965 0.0085 55 / 0.92),
+    oklch(0.965 0.0085 55 / 0.78)
+  );
+  transition: background 300ms var(--ease-out-quart), box-shadow 300ms var(--ease-out-quart);
+}
+
+.site-header.is-scrolled {
+  background: oklch(0.965 0.0085 55 / 0.88);
+  box-shadow: 0 1px 0 oklch(0.235 0.03 40 / 0.08);
+}
+
+/* ---- Terracotta panel corner mark ---- */
+.corner-mark::before,
+.corner-mark::after {
+  content: "";
+  position: absolute;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 1px solid currentColor;
+  opacity: 0.7;
+}
+
+.corner-mark::before {
+  top: 0;
+  left: 0;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.corner-mark::after {
+  bottom: 0;
+  right: 0;
+  border-left: 0;
+  border-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track {
+    animation: none;
+  }
+}
