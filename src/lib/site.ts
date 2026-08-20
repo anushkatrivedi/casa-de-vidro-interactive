@@ -1,3 +1,8 @@
+export function assetPath(p: string) {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "/casa-de-vidro-interactive";
+  return `${base}${p}`;
+}
+
 export type Plate = {
   id: string;
   src: string;
@@ -6,9 +11,6 @@ export type Plate = {
   caption?: string;
   ratio: string;
 };
-
-export const assetPath = (src: string) =>
-  `${process.env.NEXT_PUBLIC_BASE_PATH ?? "/casa-de-vidro-interactive"}${src}`;
 
 export const brand = {
   name: "Casa de Vidro",
@@ -19,10 +21,10 @@ export const brand = {
   email: "private@casadevidro.example",
 };
 
-export const heroLabel = "Plate I — The Exterior";
+export const heroLabel = "";
 
 export const manifesto = {
-  line: "Origami roofs encompass you, the 2-tier bridge makes you lose no height. Light comes in through every wall. What you see from outside, you see from inside. Surrounded by nature. In the heart of Siolim.",
+  line: "Light comes in through every wall. What you see from outside, you see from inside. Surrounded by nature. In the heart of Siolim.",
   author: "An art mansion"
 };
 
@@ -31,8 +33,8 @@ export const housePlates: Plate[] = [
     id: "exterior-2",
     src: "/images/exterior/exterior-wide.jpg",
     alt: "Wide view of the Casa de Vidro exterior showing the terracotta walls and glazing.",
-    label: "Plate II — Massing",
-    caption: "Terracotta holding glass above the garden.",
+    label: "The Mansion - An Origami Home",
+    caption: "Terracotta holding glass above the garden & the pool",
     ratio: "wide",
   },
 ];
@@ -42,32 +44,32 @@ export const livingPlates: Plate[] = [
     id: "living-1",
     src: "/images/living/living-1.jpg",
     alt: "Living room, portrait view.",
-    label: "Plate III — The Living Room",
-    caption: "The room that opens the house to the garden.",
+    label: "The Living Room - Splash Zone",
+    caption: "The room that opens the house to the pool, merging two spaces into one.",
     ratio: "portrait",
   },
   {
     id: "living-2",
     src: "/images/living/living-2.jpg",
     alt: "Living room, wide view.",
-    label: "Plate III — The Living Room",
-    caption: "Light tracked across the day.",
+    label: "The Living Room - A play of heights",
+    caption: "Light tracked across the day, offering a beautiful passage of time",
     ratio: "landscape",
   },
   {
     id: "living-3",
     src: "/images/living/living-3.jpg",
-    alt: "Living room, second wide view.",
-    label: "Plate III — The Living Room",
+    alt: "Living room open kitchen",
+    label: "The Living Room - An open dining & living experience ",
     caption: "Nothing between inside and outside but glass.",
     ratio: "landscape",
   },
   {
     id: "pool-view",
     src: "/images/pool/pool-view.jpg",
-    alt: "Living space seen toward the pool.",
-    label: "Plate III — Toward the Water",
-    caption: "The pool drawn up beside the glass.",
+    alt: "Living space seen toward the garden.",
+    label: "The Living Space — Toward the Garden",
+    caption: "The garden where you can relax & unwind.",
     ratio: "portrait",
   },
 ];
@@ -78,7 +80,7 @@ export const spacePlates: Plate[] = [
     src: "/images/interior/den.jpg",
     alt: "The den, a quiet room for reading.",
     label: "The Den",
-    caption: "A quiet room for reading.",
+    caption: "A quiet room for lounging overlooking the pool",
     ratio: "landscape",
   },
   {
@@ -118,7 +120,7 @@ export const spacePlates: Plate[] = [
     src: "/images/interior/master-bath.jpg",
     alt: "The top-floor master bath.",
     label: "Top Floor Bath",
-    caption: "Terracotta and glass at the top of the house.",
+    caption: "Ample storage, luxurious fittings.",
     ratio: "portrait",
   },
 ];
@@ -128,7 +130,7 @@ export const sitePlates: Plate[] = [
     id: "site-1",
     src: "/images/site/WhatsApp Image 2026-06-29 at 15.49.33 (1).jpeg",
     alt: "The house on its site, view one.",
-    label: "Plate V — The Site",
+    label: "The Site",
     caption: "The house as it stands.",
     ratio: "portrait",
   },
@@ -136,7 +138,7 @@ export const sitePlates: Plate[] = [
     id: "site-2",
     src: "/images/site/WhatsApp Image 2026-06-29 at 15.49.34 (2).jpeg",
     alt: "The house on its site, view two.",
-    label: "Plate V — The Site",
+    label: "The Site",
     caption: "Set among the trees.",
     ratio: "portrait",
   },
@@ -144,7 +146,7 @@ export const sitePlates: Plate[] = [
     id: "site-3",
     src: "/images/site/WhatsApp Image 2026-06-29 at 15.49.38 (2).jpeg",
     alt: "The house on its site, view three.",
-    label: "Plate V — The Site",
+    label: "The Site",
     caption: "Terracotta against the green.",
     ratio: "portrait",
   },
@@ -152,7 +154,7 @@ export const sitePlates: Plate[] = [
     id: "site-4",
     src: "/images/site/WhatsApp Image 2026-06-29 at 15.49.40 (2).jpeg",
     alt: "The house on its site, view four.",
-    label: "Plate V — The Site",
+    label: "The Site",
     caption: "The approach.",
     ratio: "landscape",
   },
@@ -160,7 +162,7 @@ export const sitePlates: Plate[] = [
     id: "site-5",
     src: "/images/site/WhatsApp Image 2026-06-29 at 15.49.40.jpeg",
     alt: "The house on its site, view five.",
-    label: "Plate V — The Site",
+    label: "The Site",
     caption: "Light on the facade.",
     ratio: "portrait",
   },

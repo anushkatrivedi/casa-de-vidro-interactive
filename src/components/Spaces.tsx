@@ -17,8 +17,8 @@ export function Spaces() {
     <section id="spaces" className="pb-24 pt-16 sm:pt-20">
       <SectionHeader
         numeral="IV"
-        title="The rooms"
-        note="Plate IV — six rooms"
+        title="The Rooms"
+        note="Six Rooms. 7 Baths. 2 Kitchens (Open & Closed)"
       />
 
       <div className="mx-auto mt-10 grid max-w-[1200px] grid-cols-1 gap-x-4 gap-y-12 px-5 sm:grid-cols-2 sm:px-10 lg:grid-cols-12 lg:gap-6">

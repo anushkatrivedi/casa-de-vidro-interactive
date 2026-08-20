@@ -19,7 +19,7 @@ export function SiteStrip() {
     >
       <SectionHeader
         numeral="V"
-        title="The site"
+        title="The Site"
         note="Plate V — the house as it stands"
       />
 

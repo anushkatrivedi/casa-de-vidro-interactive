@@ -63,7 +63,7 @@ export function Gallery() {
       <SectionHeader
         numeral="III"
         title="The Living Space"
-        note="Plate III — four views"
+        note="The four views"
       />
 
       <div
